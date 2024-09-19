@@ -1,0 +1,29 @@
+First set of pairings:
+A is paired with 1
+B is paired with 2
+C is paired with 3
+D is paired with 4
+E is paired with 5
+First set satisfaction score: 10
+
+This is the most ideal pairing because it loops through the entries the least amount of time.
+
+Second set of pairings:
+A is paired with 1
+B is paired with 2
+C is paired with 3
+D is paired with 4
+E is paired with 5
+Second set satisfaction score: 30
+
+This is the least ideal pairing because it loops through the entries the most amount of time.
+
+Third set of pairings:
+A is paired with 5
+B is paired with 3
+C is paired with 4
+D is paired with 1
+E is paired with 2
+Third set satisfaction score: 21
+
+This is in the middle because it loops through the list a middle amount of times.
