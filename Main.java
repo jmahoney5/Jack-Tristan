@@ -102,7 +102,8 @@ public class Main {
             int proposalIndex = companyNextProposal.get(company);
             String programmer = preferences.get(proposalIndex);
             companyNextProposal.put(company, proposalIndex + 1);
-
+            
+            // Inner operation
             if (!programmerPairings.containsKey(programmer)) {
                 companyPairings.put(company, programmer);
                 programmerPairings.put(programmer, company);

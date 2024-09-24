@@ -27,3 +27,63 @@ E is paired with 2
 Third set satisfaction score: 21
 
 This is in the middle because it loops through the list a middle amount of times.
+
+Interpretation:
+
+-----
+In order to test you must make a list of companies and a list of programers.
+Then you make a list of the companies preferences and programmers preferences in the form:
+
+List<String> companies = List.of("A", "B", "C", "D", "E");
+        List<String> programmers = List.of("1", "2", "3", "4", "5");
+
+        // First set of preferences
+        Map<String, List<String>> companyPreferences = new HashMap<>();
+        companyPreferences.put("A", List.of("1", "2", "3", "4", "5"));
+        companyPreferences.put("B", List.of("2", "3", "4", "5", "1"));
+        companyPreferences.put("C", List.of("3", "4", "5", "1", "2"));
+        companyPreferences.put("D", List.of("4", "5", "1", "2", "3"));
+        companyPreferences.put("E", List.of("5", "1", "2", "3", "4"));
+
+        Map<String, List<String>> programmerPreferences = new HashMap<>();
+        programmerPreferences.put("1", List.of("A", "B", "C", "D", "E"));
+        programmerPreferences.put("2", List.of("B", "C", "D", "E", "A"));
+        programmerPreferences.put("3", List.of("C", "D", "E", "A", "B"));
+        programmerPreferences.put("4", List.of("D", "E", "A", "B", "C"));
+        programmerPreferences.put("5", List.of("E", "A", "B", "C", "D"));
+
+Then you must call
+Map<String, String> pairings = findPairings(companies, programmers, companyPreferences, programmerPreferences);
+        System.out.println("First set of pairings:");
+        for (Map.Entry<String, String> pairing : pairings.entrySet()) {
+            System.out.println(pairing.getKey() + " is paired with " + pairing.getValue());
+        }
+        int satisfactionScore1 = computeSatisfactionScore(pairings, companyPreferences, programmerPreferences);
+        System.out.println("First set satisfaction score: " + satisfactionScore1);
+for the given companies and programers
+
+Output is: 
+
+First set of pairings:
+A is paired with 1
+B is paired with 2
+C is paired with 3
+D is paired with 4
+E is paired with 5
+First set satisfaction score: 10
+
+-----
+
+Our program is correct, because:
+
+It loops through the programmer preferences and the company preferences and then displays the preferences based on the first, 
+second, third, fourth, and fifth and cross-references both lists to make a satisfactory list then when it finds the first 
+satisfactory result it stops and prints it.
+
+-----
+
+The Efficiency of the algorithm in Big O
+
+The reason why it is in O(n^2) is because when you look at it the findPairings method would be O(n) and the sub loop in it would be O(n) leading to O(n^2).
+i.e. it goes through every programmer and company and  every combination of programmer and company.
+There are N programmers and N companies. Total matches is N*N=N^2 in main loop. The inner operations is in O(n), so O(n^2) dominates O(n) for large n and we are left with O(n^2)
